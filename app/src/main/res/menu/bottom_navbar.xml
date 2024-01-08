@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item  android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Home"
+        android:id="@+id/home"
+        android:icon="@drawable/home_tahalili"/>
+    <item android:title="seach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Search"
+        android:icon="@drawable/search_tahalili"/>
+    <item android:title="Analyse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Analyse"
+        android:icon="@drawable/analysesvg"/>
+    <item android:title="Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile"
+        android:icon="@drawable/baseline_person_24"/>
+</menu>
