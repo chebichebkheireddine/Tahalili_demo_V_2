@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
+
         android:background="#25b8f4">
 
         <TextView
@@ -43,15 +44,7 @@
             android:textSize="16sp"
             android:layout_marginBottom="8dp" /> <!-- Increase text size and add bottom margin -->
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:rating="3.5"
-            android:stepSize="1"
-            android:isIndicator="true"
-        android:layout_marginBottom="8dp" /> <!-- Add bottom margin -->
+         <!-- Add bottom margin -->
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
