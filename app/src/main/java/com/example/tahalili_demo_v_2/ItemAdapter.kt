@@ -1,13 +1,15 @@
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tahalili_demo_v_2.DataItem
 
 
 import com.example.tahalili_demo_v_2.R
 
-class ItemAdapter(private val itemList: List<String>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private val itemList: List<DataItem>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
@@ -16,15 +18,19 @@ class ItemAdapter(private val itemList: List<String>) : RecyclerView.Adapter<Ite
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = itemList[position]
-        holder.bind(item)
+
+        holder.lastName.text = item.name_lab
+
     }
     override fun getItemCount(): Int {
         return itemList.size
     }
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: String) {
-            // Bind data to your item view's UI elements
+        val lastName: TextView
+        init {
+            lastName = itemView.findViewById(R.id.labNameTextView)
+
         }
     }
 }

@@ -16,15 +16,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var apiService: ApiService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-         var binding = ActivityMainBinding.inflate(layoutInflater)
+         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        replaceFragment(Home(apiService))
-        initializeRetrofit()
+        replaceFragment(Home())
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> replaceFragment(Home(apiService))
+                R.id.home -> replaceFragment(Home())
                 R.id.Search -> replaceFragment(Search())
                 R.id.Analyse -> replaceFragment(Analyse())
                 R.id.profile -> replaceFragment(Profile())
@@ -34,14 +32,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-    }
-    private fun initializeRetrofit() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.0.2:8000/api/v1/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        apiService = retrofit.create(ApiService::class.java)
     }
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager

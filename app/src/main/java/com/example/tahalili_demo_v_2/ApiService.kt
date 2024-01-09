@@ -6,8 +6,5 @@ import retrofit2.http.GET
 // Define your ApiService interface for Retrofit requests
 interface ApiService {
     @GET("Labs")
-    fun getData(): Call<List<Data>> // Adjust Data model according to API response
+    fun getData(): Call<List<DataItem>>
 }
-
-// Define your Data model based on the API response structure
-
