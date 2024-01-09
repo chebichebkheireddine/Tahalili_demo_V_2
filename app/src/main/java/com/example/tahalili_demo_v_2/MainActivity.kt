@@ -8,18 +8,23 @@ import com.example.tahalili_demo.Analyse
 import com.example.tahalili_demo.Profile
 import com.example.tahalili_demo.Search
 import com.example.tahalili_demo_v_2.databinding.ActivityMainBinding
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var apiService: ApiService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
          var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(Home())
+        replaceFragment(Home(apiService))
+        initializeRetrofit()
 
         binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> replaceFragment(Home())
+                R.id.home -> replaceFragment(Home(apiService))
                 R.id.Search -> replaceFragment(Search())
                 R.id.Analyse -> replaceFragment(Analyse())
                 R.id.profile -> replaceFragment(Profile())
@@ -29,6 +34,14 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+    }
+    private fun initializeRetrofit() {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.0.2:8000/api/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        apiService = retrofit.create(ApiService::class.java)
     }
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager

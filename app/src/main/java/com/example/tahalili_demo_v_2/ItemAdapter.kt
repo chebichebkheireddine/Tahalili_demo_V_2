@@ -16,10 +16,8 @@ class ItemAdapter(private val itemList: List<String>) : RecyclerView.Adapter<Ite
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = itemList[position]
-        // Bind data to your item view here
         holder.bind(item)
     }
-
     override fun getItemCount(): Int {
         return itemList.size
     }
