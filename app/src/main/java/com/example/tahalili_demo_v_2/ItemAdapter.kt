@@ -20,8 +20,8 @@ class ItemAdapter(private val itemList: List<DataItem>) : RecyclerView.Adapter<I
         val item = itemList[position]
 
         holder.lastName.text = item.name_lab
-        holder.phone.text = item.tlp_lab
-        holder.emaile.text = item.email_lab
+        holder.phone.text = item.tlpn
+        holder.emaile.text = item.Email
 
     }
     override fun getItemCount(): Int {

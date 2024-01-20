@@ -62,7 +62,7 @@ class Home : Fragment() {
 
     private fun initializeRetrofit(): ApiService {
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.209.58:8000/api/V1/")
+            .baseUrl("http://192.168.46.58:8000/api/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
